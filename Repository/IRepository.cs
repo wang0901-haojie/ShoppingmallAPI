@@ -18,7 +18,7 @@ namespace Repository
         /// <param name="parameters">参数</param>
         /// <param name="isCommit">是否提交</param>
         /// <returns></returns>
-        void Command(string commandText, IDictionary<string, object> parameters = null);
+        int Command(string commandText, IDictionary<string, object> parameters = null);
         /// <summary>
         /// 查询对象集合
         /// </summary>

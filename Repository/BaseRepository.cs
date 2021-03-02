@@ -28,7 +28,7 @@ namespace Repository
                 if (connection == null)
                 {
                     //ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[Key];
-                    connection = new SqlConnection("Data Source=.;Initial Catalog=UnitCoreLianxi;Integrated Security=True");
+                    connection = new SqlConnection("Data Source=.;Initial Catalog=Electricity_project;Integrated Security=True");
                 }
                 return connection;
             }
@@ -39,13 +39,13 @@ namespace Repository
         /// </summary>
         /// <param name="commandText"></param>
         /// <param name="parameters"></param>
-        public virtual void Command(string commandText, IDictionary<string, object> parameters = null)
+        public virtual int Command(string commandText, IDictionary<string, object> parameters = null)
         {
             Func<SqlCommand, int> excute = (commend) =>
             {
                 return commend.ExecuteNonQuery();
             };
-            CreateDbCommondAndExcute<int>(commandText, parameters, excute);
+            return  CreateDbCommondAndExcute<int>(commandText, parameters, excute);
         }
         /// <summary>
         /// 查询实体（强类型）
