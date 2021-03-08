@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ShoppingmallModel
 {
-    public class GoodInfo
+    public class GoodInfowhj
     {
         public int GoodID        { get; set; }
         public string GoodName      { get; set; }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ShoppingmallModel
 {
-    public class Changku
+    public class Changkuwhj
     {
         public int CKId   { get; set; }                  //仓库Id   
         public string CKName { get; set; }               //仓库名称

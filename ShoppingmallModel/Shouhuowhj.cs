@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ShoppingmallModel
 {
-    public class Shouhuo
+    public class Shouhuowhj
     {
         public int SId			 { get; set; }
         public string SName		 { get; set; }                //收货人
