@@ -20,148 +20,141 @@ namespace Shopping_Servers_Loig
         }
 
         //我的地址 显示
-        public List<CollectInfoModelwhj> GetCollectInfos()
+        public List<Shouhuo> GetCollectInfos()
         {
-            string sql = $"select * from CollectInfo a join UserInfo b on a.ColleID=b.UserID join Location c on a.ColleID = c.ID";
-            return bll.QueryAll<CollectInfoModelwhj>(sql, null, null);
+            string sql = $"select * from Shouhuo";
+            return bll.QueryAll<Shouhuo>(sql, null, null);
         }
 
         //我的地址 删除
         public int GetCollectInfosDel(int id)
         {
-            string sql = $"delete from CollectInfo where ColleID='{id}'";
-            return bll.Command(sql,null);
+            string sql = $"delete from Shouhuo where SId='{id}'";
+            return bll.Command(sql, null);
         }
 
         //我的地址 修改
-        public int GetCollectInfosUpdate(CollectInfoModelwhj m)
+        public int GetCollectInfosUpdate(Shouhuo m)
         {
-            string sql = $"update CollectInfo set ColleName='{m.ColleName}',ColleNation='{m.ColleNation}' , CollenHome='{m.CollenHome}' , CollePostal='{m.CollePostal}' , CollePhone='{m.CollePhone}'  where ColleID='{m.ColleID}'";
-            return bll.Command(sql,null);
+            string sql = $"update Shouhuo set SName='{m.SName}',SDiqu='{m.SDiqu}' , SXiangxin='{m.SXiangxin}' , SEmile='{m.SEmile}' , SPhone='{m.SPhone}',SGDPhone='{m.SGDPhone}'  where SId='{m.SId}'";
+            return bll.Command(sql, null);
         }
 
         //我的地址 根据Id修改
-        public List<CollectInfoModelwhj> GetCollectInfosUpdateId(int id)
+        public List<Shouhuo> GetCollectInfosUpdateId(int ids)
         {
-            string sql = $"select * from CollectInfo a join UserInfo b on a.ColleID=b.UserID join Location c on a.ColleID = c.ID where ColleID = '{id}'";
-            return bll.QueryAll<CollectInfoModelwhj>(sql,null,null);
+            string sql = $"select * from Shouhuo where SId='{ids}'";
+            return bll.QueryAll<Shouhuo>(sql, null, null);
         }
 
         //我的地址 新增
-        public int GetCollectInfosAdd(CollectInfoModelwhj m)
+        public int GetCollectInfosAdd(Shouhuo m)
         {
-            string sql = $"insert into CollectInfo values('{m.ColleName}','{m.ColleNation}','{m.CollenHome}','{m.CollePostal}','{m.CollePhone}','{m.UserID}','{m.ID}')";
-            return bll.Command(sql,null);
+            string sql = $"insert into Shouhuo values('{m.SName}','{m.SDiqu}','{m.SXiangxin}','{m.SEmile}','{m.SPhone}','{m.SGDPhone}')";
+            return bll.Command(sql, null);
         }
 
 
         //仓库地址  美国
-        public List<InternationalModelwhj> GetInternationalMeiguo()
+        public List<GuojiChangku> GetInternationalMeiguo()
         {
-            string sql = $"select * from International a join WareHouseInfo b on a.InternID=b.WareID where InternName='美国'";
-            return bll.QueryAll<InternationalModelwhj>(sql,null,null);
+            string sql = $"select * from GuojiChangku where GJCity='美国'";
+            return bll.QueryAll<GuojiChangku>(sql, null, null);
         }
         //仓库地址  东莞
-        public List<InternationalModelwhj> GetInternationalDongwan()
+        public List<GuojiChangku> GetInternationalDongwan()
         {
-            string sql = $"select * from International a join WareHouseInfo b on a.InternID=b.WareID where InternName='东莞'";
-            return bll.QueryAll<InternationalModelwhj>(sql, null, null);
+            string sql = $"select * from GuojiChangku where GJCity='东莞'";
+            return bll.QueryAll<GuojiChangku>(sql, null, null);
         }
         //仓库地址  马来
-        public List<InternationalModelwhj> GetInternationalMalai()
+        public List<GuojiChangku> GetInternationalMalai()
         {
-            string sql = $"select * from International a join WareHouseInfo b on a.InternID=b.WareID where InternName='马来'";
-            return bll.QueryAll<InternationalModelwhj>(sql, null, null);
+            string sql = $"select * from GuojiChangku where GJCity='马来西亚'";
+            return bll.QueryAll<GuojiChangku>(sql, null, null);
         }
         //仓库地址  日本
-        public List<InternationalModelwhj> GetInternationalRiben()
+        public List<GuojiChangku> GetInternationalRiben()
         {
-            string sql = $"select * from International a join WareHouseInfo b on a.InternID=b.WareID where InternName='日本'";
-            return bll.QueryAll<InternationalModelwhj>(sql, null, null);
+            string sql = $"select * from GuojiChangku where GJCity='日本'";
+            return bll.QueryAll<GuojiChangku>(sql, null, null);
         }
         //仓库地址  捷克
-        public List<InternationalModelwhj> GetInternationalJieke()
+        public List<GuojiChangku> GetInternationalJieke()
         {
-            string sql = $"select * from International a join WareHouseInfo b on a.InternID=b.WareID where InternName='捷克'";
-            return bll.QueryAll<InternationalModelwhj>(sql, null, null);
+            string sql = $"select * from GuojiChangku where GJCity='捷克'";
+            return bll.QueryAll<GuojiChangku>(sql, null, null);
         }
 
 
         //货物预报 添加预报
-        public int GetGoodInfoAdd(GoodInfowhj m)
+        public int GetHuowuYubaoAdd(HuowuYubao m)
         {
-            string sql = $"insert into GoodInfo values('{m.GoodName}','{m.GoodContent}','{m.GoodSize}','{m.GoodColor}',{m.GoodPrice},{m.GoodNum},{m.GoodWeight},'{m.GoodRemark}','{m.GoodImage}',{m.GoodInland},{m.GoodClassID},{m.GoodShopID},{m.GIID},'{m.KId}','{m.WareID}')";
-            return bll.Command(sql, null);
-        }
-
-        //货物预报 添加预报 删除
-        public int GetGoodInfoDel(string name,string remark,int num )
-        {
-            string sql = $"delete  from GoodInfo where GoodName='{name}' and GoodWeight='{remark}'and GoodNum='{num}'";
+            string sql = $"insert into HuowuYubao values ('{m.KudiDH}','{m.Zhongwenpinm}','{m.Huozhi}','{m.Shuliang}','{m.Likezhuanyun}','{m.Beizhu}')";
             return bll.Command(sql, null);
         }
 
         //货物预报 添加预报 快递下拉
-        public List<GoodInfowhj> GetGoodInfoKuaidi()
+        public List<Kuaidi> GetGoodInfoKuaidi()
         {
             string sql = $"select * from Kuaidi";
-            return bll.QueryAll<GoodInfowhj>(sql, null, null);
+            return bll.QueryAll<Kuaidi>(sql, null, null);
         }
 
         //货物预报 添加预报 仓库下拉
-        public List<GoodInfowhj> GetGoodInfoCangku()
+        public List<Changku> GetGoodInfoCangku()
         {
-            string sql = $"select* from WareHouseInfo";
-            return bll.QueryAll<GoodInfowhj>(sql, null, null);
+            string sql = $"select * from Changku";
+            return bll.QueryAll<Changku>(sql, null, null);
         }
 
-        //货物预报 添加预报 显示
-        public List<GoodInfowhj> GetGoodInfosShow()
-        {
-            string sql = $"select top 3 GoodName,GoodWeight,GoodNum from GoodInfo";
-            return bll.QueryAll<GoodInfowhj>(sql, null, null);
-        }
 
         //货物预报 添加预报 查询
-        public List<GoodInfowhj> GetGoodInfosChaxun(int? id=null)
+        public List<GoodInfo> GetGoodInfosChaxun(int? id = null)
         {
             string sql = $"select * from GoodInfo where GoodID='{id}'";
-            return bll.QueryAll<GoodInfowhj>(sql,null,null);
+            return bll.QueryAll<GoodInfo>(sql, null, null);
+        }
+        //货物预报 添加预报 快递查询
+        public List<Kuaidi> GetKuaidiChaxun(string KDanhao)
+        {
+            string sql = $"select * from Kuaidi where KDanhao='{KDanhao}'";
+            return bll.QueryAll<Kuaidi>(sql, null, null);
         }
 
         //货物预报 批量预报 添加
-        public int GetGoodInfoPLAdd(GoodInfowhj m)
+        public int GetGoodInfoPLAdd(HuowuYubao m)
         {
-            string sql = $"insert into GoodInfo values('{m.GoodName}','{m.GoodContent}','{m.GoodSize}','{m.GoodColor}',{m.GoodPrice},{m.GoodNum},{m.GoodWeight},'{m.GoodRemark}','{m.GoodImage}',{m.GoodInland},{m.GoodClassID},{m.GoodShopID},{m.GIID},'{m.KId}','{m.WareID}')";
+            string sql = $"insert into HuowuYubao values ('{m.KudiDH}','{m.Zhongwenpinm}','{m.Huozhi}','{m.Shuliang}','{m.Likezhuanyun}','{m.Beizhu}'),('{m.KudiDH}','{m.Zhongwenpinm}','{m.Huozhi}','{m.Shuliang}','{m.Likezhuanyun}','{m.Beizhu}'),('{m.KudiDH}','{m.Zhongwenpinm}','{m.Huozhi}','{m.Shuliang}','{m.Likezhuanyun}','{m.Beizhu}')";
             return bll.Command(sql, null);
         }
 
         //货物预报 批量预报 删除
-        public int GetGoodInfoPLDel(int id,string goodname,int goodprice,int goodnum,string goodcontent)
+        public int GetGoodInfoPLDel(string KudiDH, string Zhongwenpinm, string Huozhi, string Shuliang, string Beizhu)
         {
-            string sql = $"delete  from GoodInfo where GoodID='{id}' and GoodName='{goodname}' and GoodPrice='{goodprice}' and GoodNum='{goodnum}' and GoodContent='{goodcontent}'";
-            return bll.Command(sql,null);
+            string sql = $"delete from HuowuYubao where KudiDH='{KudiDH}' and Zhongwenpinm='{Zhongwenpinm}' and Huozhi='{Huozhi}' and Shuliang='{Shuliang}' and Beizhu='{Beizhu}'";
+            return bll.Command(sql, null);
         }
 
         //我的收藏  显示
-        public List<GoodInfowhj> GetGoodInfosSCShow()
+        public List<Dianpu> GetGoodInfosSCShow()
         {
-            string sql = $"select top 3* from GoodInfo";
-            return bll.QueryAll<GoodInfowhj>(sql, null, null);
+            string sql = $"select top 3 * from Dianpu a join GoodInfo b on a.DId=b.GoodID";
+            return bll.QueryAll<Dianpu>(sql, null, null);
         }
 
         //我的收藏 删除
         public int GetGoodInfosSCDel(int id)
         {
-            string sql = $"delete  from GoodInfo where GoodID='{id}'";
-            return bll.Command(sql,null);
+            string sql = $"delete from GoodInfo where GoodID='{id}'";
+            return bll.Command(sql, null);
         }
 
-        //我的收藏 批量删除
-        public int GetGoodInfosSCDels(int ids)
-        {
-            string sql = $"delete from GoodInfo where GoodID in ({ids})";
-            return bll.Command(sql,null);
-        }
+        ////我的收藏 批量删除
+        //public int GetGoodInfosSCDels(string ids)
+        //{
+        //    string sql = $"delete from GoodInfo where GoodID in ('{ids}')";
+        //    return bll.Command(sql, null);
+        //}
     }
 }
