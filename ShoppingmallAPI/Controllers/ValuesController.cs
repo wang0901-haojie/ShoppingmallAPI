@@ -205,5 +205,66 @@ namespace ShoppingmallAPI.Controllers
             }
             return row;
         }
+
+        //我的收藏 详情
+        [HttpGet]
+        [Route("/api/GetDianpuwhjxiangq")]
+        public List<Dianpuwhj> GetDianpuwhjsxiangq(int id)
+        {
+            List<Dianpuwhj> list = bll.GetDianpuwhjsxiangq(id);
+            return list;
+        }
+
+        //我的钱包
+        [HttpGet]
+        [Route("/api/GetWalletwhjsshow")]
+        public List<Walletwhj> GetWalletwhjsshow()
+        {
+            List<Walletwhj> list = bll.GetWalletwhjsshow();
+            return list;
+        }
+
+        //我的钱包 充值金额
+        [HttpPost]
+        [Route("/api/GetWalletwhjsshowyi")]
+        public int GetWalletwhjczje()
+        {
+            var row = bll.GetWalletwhjczje();
+            return row;
+        }
+        //我的钱包 充值金额
+        [HttpPost]
+        [Route("/api/GetWalletwhjsshower")]
+        public int GetWalletwhjczjeer()
+        {
+            var row = bll.GetWalletwhjczjeer();
+            return row;
+        }
+        //我的钱包 充值金额
+        [HttpPost]
+        [Route("/api/GetWalletwhjsshowwu")]
+        public int GetWalletwhjczjewu()
+        {
+            var row = bll.GetWalletwhjczjewu();
+            return row;
+        }
+
+        //我的钱包 手动充值
+        [HttpPost]
+        [Route("/api/GetWalletwhsdcz")]
+        public int GetWallewhjsdcz(int balance)
+        {
+            var row = bll.GetWallewhjsdcz(balance);
+            return row;
+        }
+
+        //我的钱包 立即提现
+        [HttpPost]
+        [Route("/api/GetWalletwhljtx")]
+        public int GetWallewhjljtx(int balancetx)
+        {
+            var row = bll.GetWallewhjljtx(balancetx);
+            return row;
+        }
     }
 }

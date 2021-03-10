@@ -149,5 +149,51 @@ namespace Shopping_Servers_Loig
             string sql = $"delete from GoodInfo where GoodID='{id}'";
             return bll.Command(sql, null);
         }
+
+        //我的收藏 详情
+        public List<Dianpuwhj> GetDianpuwhjsxiangq(int id)
+        {
+            string sql = $"select  * from Dianpu a join GoodInfo b on a.DId=b.GoodID where GoodID='{id}'";
+            return bll.QueryAll<Dianpuwhj>(sql,null,null);
+        }
+
+        //我的钱包
+        public List<Walletwhj> GetWalletwhjsshow()
+        {
+            string sql = $"select * from Wallet a join Jifen b  on a.JFId=b.JFId";
+            return bll.QueryAll<Walletwhj>(sql, null, null);
+        }
+        //我的钱包 充值金额
+        public int GetWalletwhjczje()
+        {
+            string sql = $"update Wallet set WalletBalance=WalletBalance+100";
+            return bll.Command(sql, null);
+        }
+        //我的钱包 充值金额
+        public int GetWalletwhjczjeer()
+        {
+            string sql = $"update Wallet set WalletBalance=WalletBalance+200";
+            return bll.Command(sql, null);
+        }
+        //我的钱包 充值金额
+        public int GetWalletwhjczjewu()
+        {
+            string sql = $"update Wallet set WalletBalance=WalletBalance+500";
+            return bll.Command(sql, null);
+        }
+
+        //我的钱包 手动充值
+        public int GetWallewhjsdcz(int balance)
+        {
+            string sql = $"update Wallet set WalletBalance=WalletBalance+{balance}";
+            return bll.Command(sql,null);
+        }
+
+        //我的钱包 立即提现
+        public int GetWallewhjljtx(int balancetx)
+        {
+            string sql = $"update Wallet set WalletBalance=WalletBalance-{balancetx}";
+            return bll.Command(sql, null);
+        }
     }
 }
